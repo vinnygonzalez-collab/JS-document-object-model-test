@@ -1,0 +1,205 @@
+/* Step 1: Remove default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 90px 0 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+#view1,
+#view2 {
+    width: 100%;
+}
+
+/* Control buttons styling */
+.controls {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Base layout for rows of 3 */
+.box-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Spacing between boxes */
+    width: 360px; /* 3 boxes x 100px + gaps (100*3 + 15*2 = 345, so 360 gives a nice layout) */
+}
+
+/* The identical black boxes */
+.black-box {
+    width: 100px;
+    height: 100px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center; /* Horizontally center text */
+    align-items: center;    /* Vertically center text */
+    transition: all 0.3s ease; /* Smooth transition between views */
+}
+
+/* VIEW 1: Standard vertical stack */
+.view-style-1 .black-box {
+    border: 2px solid transparent;
+    border-radius: 0px;
+}
+
+/* VIEW 2: Alternative style for DOM toggle demonstration */
+/* You can change how the vertical boxes look when View 2 is active */
+.view-style-2 .black-box {
+    background-color: #222222;
+    border: 2px solid #ff0000; /* Adds a red border in view 2 */
+    border-radius: 15px;       /* Rounds the corners in view 2 */
+    transform: scale(1.05);    /* Slightly enlarges the boxes */
+}
+
+    .quiz-container {
+        width: min(92%, 680px);
+        margin: 0 auto;
+        padding: 36px;
+        background: #ffffff;
+        border: 1px solid #d7dee8;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(28, 44, 64, 0.12);
+    }
+
+    .eyebrow {
+        margin-bottom: 10px;
+        color: #147d92;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .quiz-container h1 {
+        color: #172b4d;
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        line-height: 1.2;
+    }
+
+    .progress,
+    .score {
+        color: #637083;
+        font-size: 0.95rem;
+    }
+
+    .progress {
+        margin: 12px 0 24px;
+    }
+
+    .btn-grid {
+        display: grid;
+        gap: 12px;
+    }
+
+    .answer-btn {
+        width: 100%;
+        margin: 0;
+        padding: 16px 18px;
+        border: 2px solid #d7dee8;
+        border-radius: 8px;
+        background: #f8fafc;
+        color: #172b4d;
+        font-size: 1rem;
+        text-align: left;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .answer-btn:hover:not(:disabled) {
+        border-color: #147d92;
+        background: #e8f6f7;
+    }
+
+    .answer-btn.correct {
+        border-color: #218739;
+        background: #e4f5e7;
+        color: #17652a;
+    }
+
+    .answer-btn.wrong {
+        border-color: #c93636;
+        background: #fde9e9;
+        color: #9c2424;
+    }
+
+    .feedback {
+        min-height: 24px;
+        margin: 22px 0 14px;
+        font-weight: bold;
+    }
+
+    .correct-text {
+        color: #17652a;
+    }
+
+    .wrong-text {
+        color: #9c2424;
+    }
+
+    .quiz-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .score {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .next-btn {
+        margin: 0;
+        border: 0;
+        border-radius: 8px;
+        background: #147d92;
+        color: #ffffff;
+    }
+
+    .next-btn:hover {
+        background: #0f6374;
+    }
+
+    @media (max-width: 520px) {
+        body {
+            padding-top: 32px;
+        }
+
+        .quiz-container {
+            padding: 24px 18px;
+        }
+
+        .quiz-footer {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .next-btn {
+            width: 100%;
+            margin: 0;
+        }
+    }
